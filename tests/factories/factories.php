@@ -7,3 +7,10 @@ $factory('App\Lesson', [
 	'some_bool'     => $faker->boolean($chanceOfGettingTrue = 50)
 
 ]);
+
+// $factory('App\User', [
+
+// 	'email' 		=> $faker->sentence,
+// 	'password'  		=> $faker->paragraph
+
+// ]);

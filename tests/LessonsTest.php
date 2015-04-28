@@ -36,6 +36,32 @@ class LessonsTest extends ApiTester {
 		$this->assertEquals('This is my single lesson title', $json->data->title);
 
 	}
+
+	public function testError404IflessonNotFound()
+	{
+		$json = $this->getJson('api/v1/lessons/x');		
+
+		$this->assertResponseStatus(404);
+
+		$this->assertObjectHasAttribute('error', $json);		
+
+	}
+
+	public function testCreatingAnewLessonGivenValidParameters()
+	{
+		$attributes = Factory::attributesFor('App\Lesson');
+		
+		$this->getJson('api/v1/lessons', 'POST', $attributes);
+
+		$this->assertResponseStatus(201);
+	}
+
+	public function testItThrowsA404WhenCreatingALessonsFailsValidation()
+	{
+		$this->getJson('api/v1/lessons', 'POST');
+		
+		$this->assertResponseStatus(404);
+	}
 	
 
 }

@@ -18,7 +18,7 @@ class LessonController extends ApiController {
 	{
 		$this->lessonTransformer = $lessonTransformer;
 
-		// $this->middleware('auth.basic', ['only' => 'post']);
+		$this->middleware('auth.basic', ['only' => 'post']);
 	}
 
 	/**
@@ -38,7 +38,7 @@ class LessonController extends ApiController {
 	}
 
 	/**
-	 * Display the specified resource.
+	 * Display the specified lesson.
 	 *
 	 * @param  int  $id
 	 *
@@ -60,49 +60,21 @@ class LessonController extends ApiController {
 		]);
 	}
 
-
-
 	/**
-	 * Store a newly created resource in storage.
+	 * Store a newly created lesson in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
-	}
+		if(! $request->title || ! $request->body)
+		{
+			return $this->responseNotSaved('Parameters failed validation for an error.');
+		}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+		Lesson::create($request->all());
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
+		return $this->responseCreated('Lesson succesfully created.');
 	}
 
 }
