@@ -8,9 +8,9 @@ $factory('App\Lesson', [
 
 ]);
 
-// $factory('App\User', [
+$factory('App\Comment', [
 
-// 	'email' 		=> $faker->sentence,
-// 	'password'  		=> $faker->paragraph
+	'body' 		=> 	$faker->sentence,
+	'lesson_id' => 'factory:App\Lesson'
 
-// ]);
+]);

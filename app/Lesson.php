@@ -11,13 +11,12 @@ class Lesson extends Model
 
 
 	/**
-	 * A lesson can have many tags
+	 * A lesson can have many comments
 	 *
 	 * @return mixed
 	 */
-	// public function tags()
-	// {	
-	// 	//many to many relationship
-	// 	return $this->belongsToMany('App\Tag');
-	// }
+	public function comments()
+	{		
+		return $this->hasMany('App\Comment');
+	}
 } 

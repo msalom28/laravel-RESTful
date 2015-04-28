@@ -2,7 +2,7 @@
 
 use Laracasts\TestDummy\Factory;
 
-class LessonsTest extends ApiTester {
+class LessonTest extends ApiTester {
 
 	public function tearDown()
 	{
@@ -37,7 +37,7 @@ class LessonsTest extends ApiTester {
 
 	}
 
-	public function testError404IflessonNotFound()
+	public function testError404WhenlessonNotFound()
 	{
 		$json = $this->getJson('api/v1/lessons/x');		
 
@@ -56,7 +56,7 @@ class LessonsTest extends ApiTester {
 		$this->assertResponseStatus(201);
 	}
 
-	public function testItThrowsA404WhenCreatingALessonsFailsValidation()
+	public function testItThrowsA404WhenCreatingALessonFailsValidation()
 	{
 		$this->getJson('api/v1/lessons', 'POST');
 		

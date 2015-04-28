@@ -7,16 +7,14 @@ class DatabaseSeeder extends Seeder {
 
 	private $tables = [
 
-		'lessons'
-		// 'tags',
-		// 'lesson_tag'
+		'lessons',
+		'comments'
 	];
 
 	private $seederTables = [
 
-		'LessonsTableSeeder'
-		// 'TagsTableSeeder',
-		// 'LessonTagTableSeeder'
+		'LessonsTableSeeder',
+		'CommentsTableSeeder'
 	];
 
 	/**
