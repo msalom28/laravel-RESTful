@@ -1,7 +1,7 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "Laravel-RESTful",
+	"description": "A RESTful api designed with Laravel",
+	"keywords": ["laravel", "api", "restful", "rest", "restful-api"],
 	"license": "MIT",
 	"type": "project",
 	"require": {
