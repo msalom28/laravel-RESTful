@@ -24,6 +24,18 @@ class LessonsTest extends ApiTester {
 		//assert
 		$this->assertResponseOk();
 	}
+
+	public function testFetchingASingleLesson()
+	{
+		$lesson = Factory::create('App\Lesson', ['title' => 'This is my single lesson title']);
+
+		$json = $this->getJson('api/v1/lessons/'.$lesson->id);
+
+		$this->assertResponseOk();
+
+		$this->assertEquals('This is my single lesson title', $json->data->title);
+
+	}
 	
 
 }

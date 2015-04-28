@@ -38,14 +38,29 @@ class LessonController extends ApiController {
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function show($id)
 	{
-		//
+		$lesson = Lesson::find($id);
+
+		if (! $lesson)
+		{
+			return $this->responseNotFound('Lesson does not exist.');
+		}
+
+		return $this->response([
+
+			'data' => $this->lessonTransformer->transform($lesson)
+
+		]);
 	}
+
+
 
 	/**
 	 * Store a newly created resource in storage.
@@ -53,17 +68,6 @@ class LessonController extends ApiController {
 	 * @return Response
 	 */
 	public function store()
-	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
 	{
 		//
 	}
